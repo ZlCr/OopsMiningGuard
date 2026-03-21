@@ -1,3 +1,8 @@
+生存模式下增加类似创造模式的挖掘冷却，防止高挖掘速度下失误破坏不想破坏的方块。
+
+***
+
+#NOTICE
 OopsMiningGuard
 Copyright (c) 2026 ZlCr
 
