@@ -6,7 +6,7 @@
 		"description": "A mod.",
 		"version": "${modVersion}",
 		"mcversion": "${minecraftVersion}",
-		"url": "https://github.com/SinTh0r4s/MyMod",
+		"url": "https://github.com/ZlCr/OopsMiningGuard",
 		"updateUrl": "",
 		"authorList": ["ZlCr"],
 		"credits": "",
