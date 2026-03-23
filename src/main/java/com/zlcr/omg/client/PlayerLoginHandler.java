@@ -5,11 +5,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.event.world.WorldEvent;
 
 import com.zlcr.omg.Config;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.network.FMLNetworkEvent.ClientConnectedToServerEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -17,6 +17,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class PlayerLoginHandler {
 
     private static boolean hasTriggered = false;
+
+    // 当连接到服务器时重置标志（包括启动单人游戏）
+    @SubscribeEvent
+    public void onClientConnectedToServer(ClientConnectedToServerEvent event) {
+        hasTriggered = false;
+    }
 
     @SubscribeEvent
     public void onEntityJoinWorld(EntityJoinWorldEvent event) {
@@ -42,13 +48,5 @@ public class PlayerLoginHandler {
 
         // 标记已触发
         hasTriggered = true;
-    }
-
-    @SubscribeEvent
-    public void onWorldUnload(WorldEvent.Unload event) {
-        // 只在客户端世界卸载时重置标志
-        if (event.world.isRemote) {
-            hasTriggered = false;
-        }
     }
 }
