@@ -1,0 +1,6 @@
+key.omg.toggle=切换挖掘保护
+key.categories.omg=我没想挖这个
+omg.message.toggle=挖掘保护 {0}
+omg.message.login=挖掘保护当前为 {0}
+omg.state.enabled=启用
+omg.state.disabled=禁用

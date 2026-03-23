@@ -1,14 +1,14 @@
 package com.zlcr.omg;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import cpw.mods.fml.common.FMLCommonHandler;
+import com.zlcr.omg.client.KeyBindings;
+import com.zlcr.omg.client.PlayerLoginHandler;
 
 @Mod(modid = omg.MODID, version = Tags.VERSION, name = "OopsMiningGuard", acceptedMinecraftVersions = "[1.7.10]")
 public class omg {
@@ -16,31 +16,20 @@ public class omg {
     public static final String MODID = "omg";
     public static final Logger LOG = LogManager.getLogger(MODID);
 
-    @SidedProxy(clientSide = "com.zlcr.omg.ClientProxy", serverSide = "com.zlcr.omg.CommonProxy")
-    public static CommonProxy proxy;
-
     @Mod.EventHandler
-    // preInit "Run before anything else. Read your config, create blocks, items, etc, and register them with the
-    // GameRegistry." (Remove if not needed)
     public void preInit(FMLPreInitializationEvent event) {
-        proxy.preInit(event);
+        // 读取配置文件
+        Config.load(event.getSuggestedConfigurationFile());
     }
 
     @Mod.EventHandler
-    // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
     public void init(FMLInitializationEvent event) {
-        proxy.init(event);
-    }
+        if (event.getSide().isClient()) {
+            // 注册快捷键（FML 事件）
+            KeyBindings.register();
 
-    @Mod.EventHandler
-    // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)
-    public void postInit(FMLPostInitializationEvent event) {
-        proxy.postInit(event);
-    }
-
-    @Mod.EventHandler
-    // register server commands in this event handler (Remove if not needed)
-    public void serverStarting(FMLServerStartingEvent event) {
-        proxy.serverStarting(event);
+            // 注册玩家登录事件（FML 事件）
+            cpw.mods.fml.common.FMLCommonHandler.instance().bus().register(new PlayerLoginHandler());
+        }
     }
 }

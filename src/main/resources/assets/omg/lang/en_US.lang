@@ -1,0 +1,6 @@
+key.omg.toggle=Toggle Mining Guard
+key.categories.omg=Oops Mining Guard
+omg.message.toggle=MiningGuard {0}
+omg.message.login=MiningGuard is {0}
+omg.state.enabled=Enabled
+omg.state.disabled=Disabled
