@@ -1,9 +1,12 @@
 package com.zlcr.omg;
 
+import net.minecraftforge.common.MinecraftForge;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.zlcr.omg.client.KeyBindings;
+import com.zlcr.omg.client.PlayerLoginHandler;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -28,10 +31,8 @@ public class Omg {
             // 注册快捷键（FML 事件）
             KeyBindings.register();
 
-            // 注册玩家登录事件（FML 事件）
-            // cpw.mods.fml.common.FMLCommonHandler.instance()
-            // .bus()
-            // .register(new PlayerLoginHandler());
+            // 注册登录处理器（Forge 事件）
+            MinecraftForge.EVENT_BUS.register(new PlayerLoginHandler());
         }
     }
 }
