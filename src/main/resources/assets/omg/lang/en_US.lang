@@ -1,6 +1,6 @@
 key.omg.toggle=Toggle Mining Guard
 key.categories.omg=Oops Mining Guard
-omg.message.toggle=MiningGuard {0}
-omg.message.login=MiningGuard is {0}
+omg.message.toggle=MiningDelayChange %s
+omg.message.login=MiningDelayChange is %s
 omg.state.enabled=Enabled
 omg.state.disabled=Disabled

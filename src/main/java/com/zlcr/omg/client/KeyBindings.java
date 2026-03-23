@@ -1,13 +1,20 @@
 package com.zlcr.omg.client;
 
-import com.zlcr.omg.Config;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.InputEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.StatCollector;
+
 import org.lwjgl.input.Keyboard;
+
+import com.zlcr.omg.Config;
+import com.zlcr.omg.Omg;
+
+import cpw.mods.fml.client.registry.ClientRegistry;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.InputEvent;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class KeyBindings {
@@ -15,8 +22,12 @@ public class KeyBindings {
     public static KeyBinding toggleKey;
 
     public static void register() {
-        toggleKey = new KeyBinding("key.omg.toggle", Keyboard.KEY_NONE, "key.categories.omg");
-        cpw.mods.fml.common.FMLCommonHandler.instance().bus().register(new KeyBindings());
+        toggleKey = new KeyBinding("key.omg.toggle", Keyboard.KEY_NONE, "key.categories.gameplay");
+        ClientRegistry.registerKeyBinding(toggleKey);
+        cpw.mods.fml.common.FMLCommonHandler.instance()
+            .bus()
+            .register(new KeyBindings());
+        Omg.LOG.info("KeyBinding registered: {}", toggleKey.getKeyDescription());
     }
 
     @SubscribeEvent

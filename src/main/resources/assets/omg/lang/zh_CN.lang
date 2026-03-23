@@ -1,6 +1,6 @@
-key.omg.toggle=切换挖掘保护
+key.omg.toggle=切换挖掘冷却
 key.categories.omg=我没想挖这个
-omg.message.toggle=挖掘保护 {0}
-omg.message.login=挖掘保护当前为 {0}
+omg.message.toggle=挖掘冷却修改 %s
+omg.message.login=挖掘冷却修改当前 %s
 omg.state.enabled=启用
 omg.state.disabled=禁用

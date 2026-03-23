@@ -1,11 +1,13 @@
 package com.zlcr.omg.mixin;
 
 import net.minecraft.client.multiplayer.PlayerControllerMP;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
 import com.zlcr.omg.Config;
 
 @Mixin(PlayerControllerMP.class)
