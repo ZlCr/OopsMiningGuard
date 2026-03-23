@@ -21,7 +21,7 @@ public class KeyBindings {
     public static KeyBinding toggleKey;
 
     public static void register() {
-        toggleKey = new KeyBinding("key.omg.toggle", Keyboard.KEY_NONE, "key.categories.gameplay");
+        toggleKey = new KeyBinding("key.omg.toggle", Keyboard.KEY_NONE, "key.categories.omg");
         ClientRegistry.registerKeyBinding(toggleKey);
         cpw.mods.fml.common.FMLCommonHandler.instance()
             .bus()

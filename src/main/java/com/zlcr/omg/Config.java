@@ -20,7 +20,7 @@ public class Config {
             5,
             0,
             40,
-            "挖掘后冷却时间（单位：tick，20tick=1s），范围 0~40，默认为 5 tick\n"
+            "挖掘后冷却时间（单位：tick，20tick=1s），修改为0后创造模式挖掘冷却消失，范围 0~40，默认为 5 tick\n"
                 + "Mining cooldown in ticks after breaking a block (20 ticks = 1 second)");
         enabled = config.getBoolean(
             "enabled",
