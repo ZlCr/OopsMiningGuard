@@ -1,4 +1,5 @@
 # [OMG]我没想挖这个(Oops Mining Guard)
+![Icon](src/main/resources/assets/omg/icon.png)
 ***
 ## 功能
 1.7.10版本专供。调整了挖掘冷却，在生存模式下也有了类似创造模式的挖掘冷却。防止高挖掘速度下失误，破坏不想破坏的方块。  
